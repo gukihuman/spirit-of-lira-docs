@@ -18,11 +18,11 @@ onMounted(() => {
   background-color: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #2b333f;
+  background-color: #5a4c6e;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #424f62;
+  background-color: #705f87;
 }
 ::-webkit-scrollbar-corner {
   background-color: transparent;

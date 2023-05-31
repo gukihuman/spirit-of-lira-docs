@@ -9,11 +9,13 @@ div(
     class="text-start text-gray-300 text-md py-2 pl-4 pr-2 transition-colors duration-200 hover:bg-[#2a2137] hover:text-white rounded-md hover:cursor-pointer"
     :class="{'bg-[#3d3050] hover:bg-[#3d3050]': key === activeKey}"
     @click="handleClick(key)"
-  ) {{ item }}
+  ) {{ formatItem(item) }}
+
 
 </template>
 <script setup lang="ts">
 import { gstore } from "@/stores/store"
+import linkList from "@/link-list.json"
 
 const activeKey = ref(0)
 
@@ -27,7 +29,16 @@ const handleClick = function (key) {
   }, 0)
 }
 
-const items = ref(["home", "gpixi"])
+const formatItem = function (input) {
+  // Remove "-" symbol and capitalize each word
+  const formattedString = input
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, (match) => match.toUpperCase())
+
+  return formattedString
+}
+
+const items = ref(linkList.items)
 
 //
 </script>

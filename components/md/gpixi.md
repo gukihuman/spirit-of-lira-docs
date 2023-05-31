@@ -12,5 +12,7 @@ fill({
 function run (hello) {
 }
 
+let variable
+
 const worse
 ```

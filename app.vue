@@ -28,6 +28,6 @@ onMounted(() => {
   background-color: transparent;
 }
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 16px;
 }
 </style>

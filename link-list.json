@@ -1,3 +1,4 @@
 {
-  "items": ["home", "input-controller", "gpixi"]
+  "items": ["home", "input-controller", "gpixi", "fullscreen"],
+  "ui": ["fullscreen"]
 }

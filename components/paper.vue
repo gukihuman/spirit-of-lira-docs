@@ -5,6 +5,7 @@ div(class="flex justify-center w-full bg-gradient-to-b from-[#312749] to-[#29244
     div(
       class="w-full h-full outline-none max-w-[900px] text-lg text-[#e1e1e1] scrollbar overflow-y-auto relative"
     )
+
       transition
         div(v-if="context === 'home'" class="absolute w-full px-10 pt-8")
           md-home
@@ -14,19 +15,14 @@ div(class="flex justify-center w-full bg-gradient-to-b from-[#312749] to-[#29244
       transition
         div(v-if="context === 'gpixi'" class="absolute w-full px-10 pt-8")
           md-gpixi
+      transition
+        div(v-if="context === 'fullscreen'" class="absolute w-full px-10 pt-8")
+          md-ui-fullscreen
 
 
 </template>
 <script setup lang="ts">
 import { gstore } from "@/stores/store"
-import linkList from "@/link-list.json"
-const itemsRaw = linkList.items
-const items = ref(
-  itemsRaw.map((value) => {
-    value = "md-" + value
-  })
-)
-
 const context = computed(() => gstore().context)
 const showPaper = computed(() => gstore().showPaper)
 //
@@ -88,7 +84,7 @@ p {
 br {
   display: block;
   content: "";
-  margin-top: 26px;
+  margin-top: 32px;
 }
 
 a {

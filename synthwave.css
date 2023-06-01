@@ -19,6 +19,9 @@ pre[class*="language-"] {
   word-wrap: normal;
   line-height: 1.5;
 
+  white-space: break-spaces !important;
+  word-break: break-word !important;
+
   -moz-tab-size: 4;
   -o-tab-size: 4;
   tab-size: 4;
@@ -33,7 +36,7 @@ pre[class*="language-"] {
 pre[class*="language-"] {
   padding: 1em;
   margin: 0.5em 0;
-  overflow: auto;
+  overflow: none;
 }
 
 :not(pre) > code[class*="language-"],

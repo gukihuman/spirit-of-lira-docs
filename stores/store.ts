@@ -1,6 +1,7 @@
 export const gstore = defineStore("gstore", {
-  state: () => ({
+  state: (): { [index: string]: any } => ({
     context: "",
     showPaper: false,
+    filter: [],
   }),
 })

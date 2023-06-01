@@ -1,4 +1,5 @@
 {
-  "items": ["home", "input-controller", "gpixi", "fullscreen"],
+  "defaults": ["home"],
+  "core": ["input-controller", "gpixi"],
   "ui": ["fullscreen"]
 }

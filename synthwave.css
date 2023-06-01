@@ -7,7 +7,6 @@
 
 code[class*="language-"],
 pre[class*="language-"] {
-  color: #f92aad;
   text-shadow: 0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3;
   background: none;
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
@@ -30,6 +29,11 @@ pre[class*="language-"] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+}
+
+code[class*="language-js"],
+pre[class*="language-js"] {
+  color: #f92aad;
 }
 
 /* Code blocks */
@@ -69,8 +73,7 @@ pre[class*="language-"] {
   color: #7456b3;
 }
 
-.token.tag,
-.token.attr-name,
+.token.tag .token.attr-name,
 .token.namespace,
 .token.number,
 .token.unit,
@@ -147,4 +150,16 @@ pre[class*="language-"] {
 
 .token.inserted {
   color: green;
+}
+
+/* pug */
+
+.token.equal {
+  color: #d9d9d9;
+}
+.token.tagpug {
+  color: #7ce277;
+}
+.token.attrpug {
+  color: #d8d8d8;
 }

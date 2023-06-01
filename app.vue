@@ -10,6 +10,28 @@ div(class="flex flex-row bg-gray-700")
 onMounted(() => {
   // just to initiate prismjs
   let p = prism
+  prism.languages.pug = {
+    "plain-text": {
+      pattern:
+        /(^[\t ]*(?!-)[\w\-#.]*[\w\-](?:(?:&[^(]+)?\([^)]+\))*\/?[\t ]).+/m,
+      lookbehind: true,
+    },
+    comment: {
+      pattern: /(^([\t ]*))\/\/.*(?:(?:\r?\n|\r)\2[\t ].+)*/m,
+      lookbehind: true,
+    },
+    attrpug: {
+      pattern: /\(([^)]+)\)/,
+      inside: {
+        punctuation: /[!(),]+/,
+        string: /"(.*)"/,
+      },
+    },
+    tagpug: {
+      pattern: /(^[\t ]*)(?!-)[\w\-#.]*[\w\-](?:(?:&[^(]+)?\([^)]+\))*\/?:?/m,
+      lookbehind: true,
+    },
+  }
 })
 </script>
 

@@ -2,9 +2,15 @@
 
 div(class="flex justify-center w-full bg-gradient-to-b from-[#312749] to-[#292443] relative")
   div(class="relative bg-[#3c314d] flex justify-center w-full shadow-2xl max-w-[900px]")
+    div(class="language-pug")
     div(
       class="w-full h-full outline-none max-w-[900px] text-lg text-[#e1e1e1] scrollbar overflow-y-auto relative"
     )
+
+
+      //- div(
+      //-   v-for=""
+      //- )
 
       transition
         div(v-if="context === 'home'" class="absolute w-full px-10 pt-8")
@@ -14,7 +20,9 @@ div(class="flex justify-center w-full bg-gradient-to-b from-[#312749] to-[#29244
           md-input-controller
       transition
         div(v-if="context === 'gpixi'" class="absolute w-full px-10 pt-8")
-          md-gpixi
+          component(is="md-gpixi")
+        
+          //- md-gpixi
       transition
         div(v-if="context === 'fullscreen'" class="absolute w-full px-10 pt-8")
           md-ui-fullscreen
@@ -22,14 +30,19 @@ div(class="flex justify-center w-full bg-gradient-to-b from-[#312749] to-[#29244
 
 </template>
 <script setup lang="ts">
-import { gstore } from "@/stores/store"
-const context = computed(() => gstore().context)
-const showPaper = computed(() => gstore().showPaper)
+const context = computed(() => gstore.context)
+const showPaper = computed(() => gstore.showPaper)
+
+import linkList from "@/link-list.json"
+
 //
 // manually prevent prism flickering on mount
 // while in switching - transition smoothes this one flickering frame
 onMounted(() => {
-  gstore().context = "input-controller"
+  gstore.context = "fullscreen"
+  setTimeout(() => {
+    prism.highlightAll()
+  }, 0)
 })
 </script>
 <style>

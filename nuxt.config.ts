@@ -10,6 +10,12 @@ export default defineNuxtConfig({
       },
     ],
   ],
+  plugins: ["@/composables/importer.ts"],
+
+  components: {
+    global: true,
+    dirs: ["@/components"],
+  },
 
   // css: ["@/tailwind.css", "@/node_modules/prismjs/themes/prism-tomorrow.css"],
   css: ["@/tailwind.css", "@/synthwave.css"],

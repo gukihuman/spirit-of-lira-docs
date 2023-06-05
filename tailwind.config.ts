@@ -2,7 +2,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["montserrat", "system-ui"],
+        sans: ["system-ui"],
+        montserrat: ["Montserrat"],
         serif: ["ui-serif", "Georgia"],
         mono: ["Roboto Mono"],
         display: ["Boogaloo"],
@@ -12,4 +13,16 @@ module.exports = {
       },
     },
   },
+  content: [
+    "vue/**/*.{vue,js,ts}",
+    "layouts/**/*.vue",
+    "pages/**/*.vue",
+    "composables/**/*.{js,ts}",
+    "plugins/**/*.{js,ts}",
+    "App.{js,ts,vue}",
+    "app.{js,ts,vue}",
+    "Error.{js,ts,vue}",
+    "error.{js,ts,vue}",
+    "content/**/*.md",
+  ],
 }

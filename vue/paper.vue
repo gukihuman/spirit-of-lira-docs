@@ -2,9 +2,8 @@
 
 div(class="flex justify-center w-full bg-gradient-to-b from-[#312749] to-[#292443] relative")
   div(class="relative bg-[#3c314d] flex justify-center w-full shadow-2xl max-w-[900px]")
-    div(class="language-pug")
     div(
-      class="w-full h-full outline-none max-w-[900px] text-lg text-[#e1e1e1] scrollbar overflow-y-auto relative"
+      class="scrollbar w-full h-full outline-none max-w-[900px] text-lg text-[#e1e1e1] overflow-y-auto relative"
     )
 
 
@@ -13,36 +12,28 @@ div(class="flex justify-center w-full bg-gradient-to-b from-[#312749] to-[#29244
       //- )
 
       transition
-        div(v-if="context === 'home'" class="absolute w-full px-10 pt-8")
+        div(v-if="STORE.activePaper === 'home'" class="absolute w-full px-10 pt-8")
           md-home
       transition
-        div(v-if="context === 'input-controller'" class="absolute w-full px-10 pt-8")
-          md-input-controller
+        div(v-if="STORE.activePaper === 'input-controller'" class="absolute w-full px-10 pt-8")
+          md-core-input-controller
       transition
-        div(v-if="context === 'gpixi'" class="absolute w-full px-10 pt-8")
+        div(v-if="STORE.activePaper === 'gpixi'" class="absolute w-full px-10 pt-8")
           component(is="md-gpixi")
         
           //- md-gpixi
       transition
-        div(v-if="context === 'fullscreen'" class="absolute w-full px-10 pt-8")
+        div(v-if="STORE.activePaper === 'fullscreen'" class="absolute w-full px-10 pt-8")
           md-ui-fullscreen
 
 
 </template>
 <script setup lang="ts">
-const context = computed(() => gstore.context)
-const showPaper = computed(() => gstore.showPaper)
-
 import linkList from "@/link-list.json"
 
-//
-// manually prevent prism flickering on mount
-// while in switching - transition smoothes this one flickering frame
 onMounted(() => {
-  gstore.context = "fullscreen"
-  setTimeout(() => {
-    prism.highlightAll()
-  }, 0)
+  STORE.activePaper = "fullscreen"
+  setTimeout(() => prism.highlightAll(), 0)
 })
 </script>
 <style>
@@ -54,6 +45,12 @@ onMounted(() => {
 .v-leave-to {
   opacity: 0;
 }
+
+.scrollbar {
+  scrollbar-gutter: stable both-edges;
+}
+
+/* Markdown styling */
 
 h1 {
   font-weight: 500;

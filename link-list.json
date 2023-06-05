@@ -1,5 +1,0 @@
-{
-  "defaults": ["home"],
-  "core": ["input-controller", "gpixi"],
-  "ui": ["fullscreen"]
-}

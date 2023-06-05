@@ -7,35 +7,47 @@ div(class="flex justify-center w-full bg-gradient-to-b from-[#312749] to-[#29244
     )
 
 
-      //- div(
-      //-   v-for=""
-      //- )
-
-      transition
-        div(v-if="STORE.activePaper === 'home'" class="absolute w-full px-10 pt-8")
-          md-home
-      transition
-        div(v-if="STORE.activePaper === 'input-controller'" class="absolute w-full px-10 pt-8")
-          md-core-input-controller
-      transition
-        div(v-if="STORE.activePaper === 'gpixi'" class="absolute w-full px-10 pt-8")
-          component(is="md-gpixi")
-        
-          //- md-gpixi
-      transition
-        div(v-if="STORE.activePaper === 'fullscreen'" class="absolute w-full px-10 pt-8")
-          md-ui-fullscreen
+      div(
+        v-for="(categoryList, category) in STORE.linkList" :key="category"
+      )
+        div(
+          v-for="(paper, key) in categoryList" :key="key"
+        )
+          transition
+            div(v-if="STORE.activePaper === paper" class="absolute w-full px-10 pt-8")
+              component(:is="resolvePaper(category, paper)")
 
 
 </template>
+
 <script setup lang="ts">
-import linkList from "@/link-list.json"
+//
+const resolvePaper = function (category: string, paper: string) {
+  //
+  if (category === "default") {
+    return "md-" + paper
+  } else {
+    return "md-" + category + "-" + paper
+  }
+}
 
 onMounted(() => {
   STORE.activePaper = "fullscreen"
-  setTimeout(() => prism.highlightAll(), 0)
+
+  // prevent flickering
+  setTimeout(() => {
+    STORE.activePaper = ""
+  }, 0)
+  setTimeout(() => {
+    prism.highlightAll()
+    STORE.activePaper = "fullscreen" // actual initial paper
+  }, 100)
+  setTimeout(() => {
+    prism.highlightAll()
+  }, 130)
 })
 </script>
+
 <style>
 .v-enter-active,
 .v-leave-active {

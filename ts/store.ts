@@ -1,8 +1,9 @@
 class Store {
   store = glib.store({
     activePaper: "",
-    searchFilter: [],
     linkList: {},
+    searchFilter: [],
+    searchFilterCategory: [],
   })
 
   // direct getters is bad practice, cuz it's very repetetive
@@ -14,6 +15,13 @@ class Store {
     this.store().activePaper = activePaper
   }
 
+  get linkList() {
+    return this.store().linkList
+  }
+  set linkList(linkList: { [key: string]: string[] }) {
+    this.store().linkList = linkList
+  }
+
   get searchFilter() {
     return this.store().searchFilter
   }
@@ -21,11 +29,11 @@ class Store {
     this.store().searchFilter = searchFilter
   }
 
-  get linkList() {
-    return this.store().linkList
+  get searchFilterCategory() {
+    return this.store().searchFilterCategory
   }
-  set linkList(linkList: { [key: string]: string[] }) {
-    this.store().linkList = linkList
+  set searchFilterCategory(searchFilterCategory: string[]) {
+    this.store().searchFilterCategory = searchFilterCategory
   }
 }
 export const STORE = new Store()

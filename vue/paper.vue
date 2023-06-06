@@ -5,8 +5,6 @@ div(class="flex justify-center w-full bg-gradient-to-b from-[#312749] to-[#29244
     div(
       class="scrollbar w-full h-full outline-none max-w-[900px] text-lg text-[#e1e1e1] overflow-y-auto relative"
     )
-
-
       div(
         v-for="(categoryList, category) in STORE.linkList" :key="category"
       )
@@ -14,7 +12,7 @@ div(class="flex justify-center w-full bg-gradient-to-b from-[#312749] to-[#29244
           v-for="(paper, key) in categoryList" :key="key"
         )
           transition
-            div(v-if="STORE.activePaper === paper" class="absolute w-full px-10 pt-8")
+            div(v-if="STORE.activePaper === paper" class="absolute w-full px-10 pt-8 pb-10")
               component(:is="resolvePaper(category, paper)")
 
 
@@ -33,18 +31,6 @@ const resolvePaper = function (category: string, paper: string) {
 
 onMounted(() => {
   STORE.activePaper = "fullscreen"
-
-  // prevent flickering
-  setTimeout(() => {
-    STORE.activePaper = ""
-  }, 0)
-  setTimeout(() => {
-    prism.highlightAll()
-    STORE.activePaper = "fullscreen" // actual initial paper
-  }, 100)
-  setTimeout(() => {
-    prism.highlightAll()
-  }, 130)
 })
 </script>
 
@@ -123,11 +109,14 @@ li {
   margin-left: 20px;
 }
 
-/* Style blockquotes */
 blockquote {
-  margin-left: 20px;
-  border-left: 2px solid #ccc;
-  padding-left: 10px;
+  margin: 15px 0 15px 0;
+  border-left: 4px solid #564b68;
+  padding-top: 8px;
+  padding-bottom: 1px;
+  padding-left: 15px;
+  background-color: #32243d;
+  border-radius: 5px;
 }
 
 /* Style horizontal rules */

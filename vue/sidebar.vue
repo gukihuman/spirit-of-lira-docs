@@ -1,9 +1,12 @@
 <template lang="pug">
 div(class="h-screen min-w-[260px] bg-[#1e1729] p-2 flex flex-col")
 
-  gtitle
+  p(v-if="STORE.loading" class="text-center font-montserrat text-lg pt-4") Loading...
 
-  search
+
+  gheader(v-if="!STORE.loading")
+
+  search(v-if="!STORE.loading")
 
   links
 

@@ -6,8 +6,8 @@ div(class="flex flex-col overflow-y-auto -mt-2")
 
     p(
       v-if="checkSearchFilterCategory(category)"
-      class="text-gray-300 font-semibold text-sm pl-1 pr-1 mt-4 font-montserrat"
-    ) {{category === "default" ? "" : category}}
+      class="text-gray-300 font-semibold text-[12px] pl-1 pr-1 mt-4 font-montserrat"
+    ) {{category === "default" ? "" : category.toUpperCase()}}
 
     div(v-for="(paper, key) in categoryList" :key="key")
 
@@ -32,9 +32,7 @@ const checkSearchFilterCategory = computed(() => (item) => {
 
 const handleClick = function (paper) {
   STORE.activePaper = paper
-  setTimeout(() => {
-    prism.highlightAll()
-  }, 30)
+  localStorage.setItem("activePaper", STORE.activePaper)
 }
 
 const formatPaper = function (paper) {

@@ -7,8 +7,26 @@ div(class="flex flex-row bg-gray-700")
 </template>
 
 <script setup>
+// 📜 do independent list of developer parts of engine using * in the name
+// being agle to toggle on/off those parts via button
+
 onMounted(() => {
   PRISM_MANAGER.init(prism)
+  setInterval(() => prism.highlightAll(), 30)
+
+  if (!localStorage.getItem("devLinks")) {
+    localStorage.setItem("devLinks", _.toString(STORE.dev))
+  } else {
+    STORE.dev = JSON.parse(localStorage.getItem("devLinks"))
+  }
+
+  if (!localStorage.getItem("activePaper")) {
+    localStorage.setItem("activePaper", STORE.activePaper)
+  } else {
+    STORE.activePaper = localStorage.getItem("activePaper")
+  }
+
+  STORE.loading = false
 })
 </script>
 

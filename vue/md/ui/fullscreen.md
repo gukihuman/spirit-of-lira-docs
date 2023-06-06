@@ -10,7 +10,6 @@ Simple usage when you want some custom background and viewport in the middle.
 Fullscreen(class="h-screen w-screen bg-slate-800 flex items-center justify-center")
   Viewport
 
-
 </template>
 ```
 

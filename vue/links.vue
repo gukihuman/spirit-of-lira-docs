@@ -2,18 +2,26 @@
 
 div(class="flex flex-col overflow-y-auto -mt-2")
 
+  //- special home link
+  button(
+    v-if="checkSearchFilter('home')"
+    class="text-start text-gray-300 text-md py-2 pl-4 pr-2 transition-colors duration-200 hover:bg-[#312740] hover:text-white rounded-md hover:cursor-pointer w-full font-montserrat mt-2"
+    :class="{'bg-[#45375a] hover:bg-[#45375a]': 'home' === STORE.activePaper}"
+    @click="handleClick('home')"
+  ) {{ formatPaper('home') }}
+
   div(v-for="(categoryList, category) in STORE.linkList" :key="category")
 
     p(
       v-if="checkSearchFilterCategory(category)"
-      class="text-gray-300 font-semibold text-[12px] pl-1 pr-1 mt-4 font-montserrat"
+      class="text-gray-300 font-semibold text-[12px] pl-1 pr-1 mt-3 font-montserrat mb-0"
     ) {{category === "default" ? "" : category.toUpperCase()}}
 
     div(v-for="(paper, key) in categoryList" :key="key")
 
       button(
-        v-if="checkSearchFilter(paper)" :key="key"
-        class="text-start text-gray-300 text-md py-2 pl-4 pr-2 transition-colors duration-200 hover:bg-[#312740] hover:text-white rounded-md hover:cursor-pointer w-full font-montserrat"
+        v-if="checkSearchFilter(paper)"
+        class="text-start text-gray-300 text-md py-[6px] pl-4 pr-2 transition-colors duration-200 hover:bg-[#312740] hover:text-white rounded-md hover:cursor-pointer w-full font-montserrat"
         :class="{'bg-[#45375a] hover:bg-[#45375a]': paper === STORE.activePaper}"
         @click="handleClick(paper)"
       ) {{ formatPaper(paper) }}

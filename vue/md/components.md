@@ -19,14 +19,13 @@ export default {
 
 <br>
 
-**autoInject, depend, init()** - special properties that responsible of how to inject component to entity. None of them is required. They will be deleted after injection.
+**autoInject, depend, init()** - are special properties that responsible of how to inject component to entity. None of them is required. They will be deleted after injection.
 
 ```js
 export default {
   componentName: {
     //
-    // with it, the component will be injected in all entities automatically
-    // without it, only components that is mentioned in entity declaration
+    // with it, the component will be injected in all entities automatically while without it, only components that is mentioned in entity declaration will be injected
     autoInject: true,
 
     // what to automatically inject before the current component
@@ -37,7 +36,7 @@ export default {
      * @param entity - already instance
      * @param id - entity id
      * @param name - component name
-     * @param value - component value - kind of this object
+     * @param value - component value - default state of this object
      */
     init(entity, id, name, value) {
       // any logic here

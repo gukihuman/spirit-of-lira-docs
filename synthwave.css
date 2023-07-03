@@ -46,7 +46,7 @@ pre[class*="language-"] {
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
   background-color: transparent !important;
-  background-image: linear-gradient(to top, #2a2139 50%, #34294f);
+  background-image: linear-gradient(to top, #262139 50%, #2f294f);
   border-radius: 5px;
 }
 
@@ -66,7 +66,7 @@ pre[class*="language-"] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #b2a6c5;
+  color: #8381bc;
 }
 
 .token.punctuation {

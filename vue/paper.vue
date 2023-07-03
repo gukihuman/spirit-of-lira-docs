@@ -1,12 +1,12 @@
 <template lang="pug">
 
-div(class="flex justify-center w-full bg-gradient-to-b from-[#312749] to-[#292443] relative")
-  div(class="relative bg-[#3c314d] flex justify-center w-full shadow-2xl max-w-[900px]")
+div(class="flex justify-center w-full bg-gradient-to-b from-[#272849] to-[#262443] relative")
+  div(class="relative bg-[#3c3655] flex justify-center w-full shadow-2xl max-w-[900px]")
     div(
       class="scrollbar w-full h-full outline-none max-w-[900px] text-lg text-[#e1e1e1] overflow-y-auto relative"
     )
       div(
-        v-for="(categoryList, category) in STORE.linkList" :key="category"
+        v-for="(categoryList, category) in extendedLinks" :key="category"
       )
         div(
           v-for="(paper, key) in categoryList" :key="key"
@@ -28,6 +28,12 @@ const resolvePaper = function (category: string, paper: string) {
     return "md-" + category + "-" + paper
   }
 }
+
+const extendedLinks = computed(() => {
+  const result = _.cloneDeep(STORE.linkList)
+  result.default.push("home")
+  return result
+})
 
 onMounted(() => {
   STORE.activePaper = "fullscreen"

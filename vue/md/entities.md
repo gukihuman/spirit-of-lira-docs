@@ -2,6 +2,10 @@
 
 Collection of components with unique data.
 
+**name** component is a string of the name of the file
+
+<br>
+
 ```js
 WORLD.entities.get(id)
 ```
@@ -33,6 +37,22 @@ export default {
 ```js
 export default {
   name: "name",
+}
+```
+
+<br>
+
+**process()** - the only one property of the entity that is not a component. It is a function that will run on each game iteration.
+
+```js
+export default {
+  /** Logic that will run on each ticker iteration.
+   * @param entity - already instance
+   * @param id - entity id
+   */
+  process(entity, id) {
+    // any logic here
+  },
 }
 ```
 

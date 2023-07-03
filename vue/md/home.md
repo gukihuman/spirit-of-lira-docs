@@ -1,3 +1,13 @@
-_*Guki Engine Docs*_
+# Spirit of Lira documentation
 
-hi
+```terminal
+root
+├─ boot
+├─ components
+├─ core
+├─ data
+├─ entities
+├─ logic
+├─ systems
+└─ core
+```

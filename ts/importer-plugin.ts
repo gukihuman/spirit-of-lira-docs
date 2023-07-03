@@ -1,13 +1,16 @@
 export default defineNuxtPlugin(async () => {
   //
   // fill linkList by files from vue/md
-  // folders became keys, file names construct an array as a value
+  // folders became keys, file names construct value as an array
   STORE.linkList = {}
   //
   const entities = import.meta.glob("@/vue/**")
   for (const path in entities) {
     let onlyMD = path.match(/md/)
     if (!onlyMD) continue
+
+    // exclude home, it is special, and shown separatly
+    if (onlyMD.input?.match(/home/)) continue
 
     let cleaned = onlyMD.input?.replace(/\/vue\/md\//, "")
     if (!cleaned) continue

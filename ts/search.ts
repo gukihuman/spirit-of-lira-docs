@@ -6,6 +6,7 @@ export const debouncedSearch = _.debounce(function () {
 
   // fill search filter
   const allArray: string[] = []
+  allArray.push("home")
   _.forEach(STORE.linkList, (paper) => allArray.push(...paper))
   STORE.searchFilter = allArray.filter((item) => item.match(input))
   if (!STORE.dev) {

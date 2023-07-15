@@ -1,19 +1,5 @@
 # Spirit of Lira documentation
 
-```terminal
-root
-├─ boot
-├─ components
-├─ core
-├─ data
-├─ entities
-├─ logic
-├─ systems
-└─ UI
-```
-
-<br>
-
 Architecture in simple terms:
 
 > **components** is data
@@ -30,4 +16,33 @@ Architecture in simple terms:
 
 <br>
 
-> **core** gpixi creates renderer and game loop itself
+Folder structure:
+
+```terminal
+root
+├─ boot
+├─ components
+├─ core
+├─ data
+├─ entities
+├─ logic
+├─ systems
+└─ UI
+```
+
+<br>
+
+Global variables:
+
+```terminal
+GPIXI
+CONFIG
+IMPORTS
+LOCAL
+SYSTEM_DATA
+USER_DATA
+ENTITIES
+SYSTEMS
+```
+
+<br>

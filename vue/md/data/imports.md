@@ -64,8 +64,8 @@ IMPORTS.systems
 root
 └─ assets
     ├─ effects
-    │   ├─ swoard-hit.json
-    │   └─ swoard-hit.webp
+    │   ├─ sword-hit.json
+    │   └─ sword-hit.webp
     ├─ lira.json
     └─ lira.webp
 ```
@@ -83,7 +83,7 @@ Get json object by the name of the "**.json**" file:
 const jsonObject = IMPORTS.webps.get("lira")
 
 console.log(jsonObject)
-// { ...(your json object) }
+// { json object }
 ```
 
 <br>
